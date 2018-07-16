@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
     <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
-
+    
     <style type="text/css">
     </style>
 
@@ -17,6 +17,7 @@
 <body>
     <!-- You may change the dimensions of this canvas -->
     <canvas id="myCanvas" width="750px" height="750px"></canvas>
+    
 </body>
 <script>
 
@@ -26,11 +27,59 @@
     var tool = new paper.Tool();
 
     // getting the URL (you may want to use for Exercise 3)
-    var url = window.location.href;
+    //var url = window.location.href;
 
-    // var socket = new WebSocket(
-    //     'ws://your url here:8765/');
+    var socket = new WebSocket('ws://p4-mbohol-mbohol42742.codeanyapp.com:8765/');
 
+    var path0 = {id: 0, color: "#C0C0C0", path: new paper.Path()}
+    var path1 = {id: 1, color: "#FF0000", path: new paper.Path()}
+    var path2 = {id: 2, color: "#FFFF00", path: new paper.Path()}
+    var path3 = {id: 3, color: "#008000", path: new paper.Path()}
+    var path4 = {id: 4, color: "#00FFFF", path: new paper.Path()}
+    var path5 = {id: 5, color: "#FF00FF", path: new paper.Path()}
+    var path6 = {id: 6, color: "#000000", path: new paper.Path()}
+    var path7 = {id: 7, color: "#800080", path: new paper.Path()}
+    var path8 = {id: 8, color: "#0000FF", path: new paper.Path()}
+    var path9 = {id: 9, color: "#008000", path: new paper.Path()}
+    
+    
+    
+    var users = [path0, path1, path2, path3, path4, path5, path6, path7, path8, path9];
+   
+
+    var activeIDS = [];
+  
+    socket.onopen = function (event) {
+        var index = Math.floor((Math.random()*10));
+
+        tool.onMouseMove = function (event) {
+          var p = {
+            x: event.point.x,
+            y: event.point.y,
+            id: users[index].id,
+          };
+
+          socket.send(JSON.stringify(p));
+        }
+    };  
+  
+    socket.onmessage = function (event) {
+        console.log(event.data);
+        var point = JSON.parse(event.data);
+        var x, y, id, myPath;
+        x = point.x;
+        y = point.y;
+        id = point.id;
+        
+        myPath = users[id].path;
+        console.log("is myPath a Path object? " + (myPath instanceof paper.Path));
+        myPath.strokeColor = users[id].color;
+        myPath.add(new paper.Point(x, y));
+          
+    }
+    
+  
+  
 
 </script>
 </html>
