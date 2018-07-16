@@ -9,15 +9,156 @@
     <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
     <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
-    
+    <script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js"></script>
+  
     <style type="text/css">
+      /* UNCOMMENT CSS FOR PART II - CUSTOM INTERACTIVE PROTOTYPE
+      body {
+        font-family: Georgia;
+        background-color: lightblue;
+        font-size: 45px;
+      } 
+       
+
+     h1 {
+        background-color: white;
+        text-align: center;
+        font-size: 75px;
+        border: 20px;
+      }
+    
+      img{
+        width: 40px;
+        padding: 10px;
+      }*/
     </style>
 
 </head>
 <body>
     <!-- You may change the dimensions of this canvas -->
-    <canvas id="myCanvas" width="750px" height="750px"></canvas>
     
+    <!-- UNCOMMENT CANVAS FOR PART I-->
+    <canvas id="myCanvas" width="750px" height="750px"></canvas>
+  
+  
+    <!-- UNCOMMENT BODY FOR PART II -- CUSTOM INTERACTIVE PROTOTYPE
+    <div class = "header"> <h1> HOW ARE YOU?</h1></div>
+    <div class="container content" id="c1">
+    <div id = "message"> </div>
+    <div class = "row">
+      <div class= "col-xs-8 border border-dark text-wrap">
+        My dog passed away last night :(
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col-xs-8 border border-dark">
+        I had some really good food for dinner, so I'm happy!
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col-xs-8 border border-dark">
+        I had some really good food for dinner, so I'm happy!
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+    </div>
+    <div class = "row">
+      <div class= "col-xs-8 border border-dark text-wrap">
+        My dog passed away last night :(
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+  </div>
+    <div class = "row">
+  <div class ="col-xs-8 border border-dark">
+    I had some really good food for dinner, so I'm happy!
+  </div>
+  <div class ="col-xs-2">
+    <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+  </div>
+  <div class ="col-xs-2">
+    <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+  </div>
+</div>
+    <div class = "row" id="messages">
+      <div class ="col-xs-8 border border-dark">
+        I had some really good food for dinner, so I'm happy!
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col-xs-8 border border-dark">
+        I had some really good food for dinner, so I'm happy!
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+    </div>
+    <div class = "row">
+      <div class= "col-xs-8 border border-dark text-wrap">
+        My dog passed away last night :(
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+      </div>
+      <div class ="col-xs-2">
+        <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+      </div>
+  </div>
+    <div class = "row">
+  <div class ="col-xs-8 border border-dark">
+    I had some really good food for dinner, so I'm happy!
+  </div>
+  <div class ="col-xs-2">
+    <img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">
+  </div>
+  <div class ="col-xs-2">
+    <img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">
+  </div>
+</div>
+    </div>
+     
+    <div class="container" id="c2">
+      <div class = "row justify-content-center">
+        <div class = "col-xs-8">
+          <textarea id="text" rows="3"></textarea>
+        </div>
+        <div class = "col-xs-4">
+          <button type="button" class="btn btn-info">Send</button>
+        </div>
+      </div>
+    </div>-->
+     
+    <!-- UNCOMMENT BODY FOR PART II -- CUSTOM INTERACTIVE PROTOTYPE-->
+  
 </body>
 <script>
 
@@ -25,61 +166,139 @@
     var canvas = document.getElementById('myCanvas');
     paper.setup(canvas);
     var tool = new paper.Tool();
-
-    // getting the URL (you may want to use for Exercise 3)
-    //var url = window.location.href;
-
     var socket = new WebSocket('ws://p4-mbohol-mbohol42742.codeanyapp.com:8765/');
 
-    var path0 = {id: 0, color: "#C0C0C0", path: new paper.Path()}
-    var path1 = {id: 1, color: "#FF0000", path: new paper.Path()}
-    var path2 = {id: 2, color: "#FFFF00", path: new paper.Path()}
-    var path3 = {id: 3, color: "#008000", path: new paper.Path()}
-    var path4 = {id: 4, color: "#00FFFF", path: new paper.Path()}
-    var path5 = {id: 5, color: "#FF00FF", path: new paper.Path()}
-    var path6 = {id: 6, color: "#000000", path: new paper.Path()}
-    var path7 = {id: 7, color: "#800080", path: new paper.Path()}
-    var path8 = {id: 8, color: "#0000FF", path: new paper.Path()}
-    var path9 = {id: 9, color: "#008000", path: new paper.Path()}
+    // getting the URL (you may want to use for Exercise 3)
+    var url = window.location.href;
+
+    // Exercises 1A-C & 2
+    //UNCOMMENT FOR PART I
+    var path0 = {id: 0, color: "#C0C0C0", path: new paper.Path()};
+    var path1 = {id: 1, color: "#FF0000", path: new paper.Path()};  
+    var path2 = {id: 2, color: "#FFFF00", path: new paper.Path()};
+    var path3 = {id: 3, color: "#008000", path: new paper.Path()};
+    var path4 = {id: 4, color: "#00FFFF", path: new paper.Path()};
+    var path5 = {id: 5, color: "#FF00FF", path: new paper.Path()};
+    var path6 = {id: 6, color: "#000000", path: new paper.Path()};
+    var path7 = {id: 7, color: "#800080", path: new paper.Path()};
+    var path8 = {id: 8, color: "#0000FF", path: new paper.Path()};
+    var path9 = {id: 9, color: "#008000", path: new paper.Path()};
     
-    
-    
+    var recentID;
     var users = [path0, path1, path2, path3, path4, path5, path6, path7, path8, path9];
    
-
-    var activeIDS = [];
   
     socket.onopen = function (event) {
+        var shakeEvent = new Shake({threshold: 15});
+        shakeEvent.start();
         var index = Math.floor((Math.random()*10));
-
+        recentID = index;
+     
+      
         tool.onMouseMove = function (event) {
           var p = {
             x: event.point.x,
             y: event.point.y,
             id: users[index].id,
           };
-
           socket.send(JSON.stringify(p));
         }
+        
+        
+        
+        window.addEventListener('deviceorientation',
+            function (event){
+                var gamma = event.gamma;
+                if (gamma >= 50){
+                  index = Math.floor((Math.random()*10));
+                  recentID = index;
+                }
+            }, true); 
+      
+      
+        window.addEventListener('shake',
+             function (event){
+                  paper.project.activeLayer.removeChildren();
+             }, false);
     };  
   
     socket.onmessage = function (event) {
-        console.log(event.data);
+        var myUrl = window.location.href;
         var point = JSON.parse(event.data);
         var x, y, id, myPath;
         x = point.x;
         y = point.y;
         id = point.id;
-        
-        myPath = users[id].path;
-        console.log("is myPath a Path object? " + (myPath instanceof paper.Path));
-        myPath.strokeColor = users[id].color;
-        myPath.add(new paper.Point(x, y));
-          
+     
+      
+        if (myUrl.includes("small")){
+          if (id==recentID){
+             myPath = users[id].path;
+              myPath.strokeWidth = 10;
+              myPath.strokeColor = users[id].color;
+              myPath.add(new paper.Point(x, y));     
+          } 
+        }
+      
+        if (myUrl.includes("large")){
+          myPath = users[id].path;
+          myPath.strokeWidth = 10;
+          myPath.strokeColor = users[id].color;
+          myPath.add(new paper.Point(x, y));
+        }
+    }
+    // UNCOMMENT ABOVE FOR PART I
+  
+    /* UNCOMMENT FOR PART II -- CUSTOM INTERACTIVE PROTOTYPE
+    socket.onopen = function (event) {
+      $('.btn').click(function(){
+        var msg = {
+            type: "message",
+            text: document.getElementById("text").value, 
+            date: Date.now()
+        };
+        socket.send(JSON.stringify(msg));
+        console.log( document.getElementById("text").value );
+        document.getElementById("text").value = "";
+      })
+      
+      
     }
     
+    socket.onmessage = function (event) {
+      var txt, date;
+      var message = JSON.parse(event.data);
+      txt = message.text;
+      date = message.date;
+      
+      
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      
+      var column1 = document.createElement("div");
+      column1.setAttribute("class", "col-xs-8");
+      column1.innerHTML = txt;
+      
+      
+      var column2 = document.createElement("div");
+      column2.setAttribute("class", "col-xs-2");
+      column2.innerHTML = '<img src="https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png">';
+      
+      var column3 = document.createElement("div");
+      column3.setAttribute("class", "col-xs-2");
+      column3.innerHTML = '<img src="https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png">';
+     
+      row.innerHTML = column1.toString() + column2.toString() + column3.toString();
+     // console.log("is row a div" + row instanceof "div");
+      console.log(typeof row);
+     // document.$c1.appendChild(row);
+      var heart = "https://freeiconshop.com/wp-content/uploads/edd/heart-outline.png";
+      var mail = "https://cdn2.iconfinder.com/data/icons/designers-and-developers-icon-set/32/mail-512.png";
+      $('#c1').append('<div class = "row"><div class = "col-xs-8">'+txt+'</div> <div class ="col-xs-2"><img src='+heart +'></div><div class ="col-xs-2"><img src='+
+                      mail+'></div>');
+      
+    }
   
-  
-
+    /* UNCOMMENT BODY FOR PART II -- CUSTOM INTERACTIVE PROTOTYPE */
 </script>
 </html>
